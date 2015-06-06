@@ -41,3 +41,18 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.suo
+*.sdf
+FirstProgram.sln
+*.exe
+Debug/FirstProgram.ilk
+*.pdb
+FirstProgram.opensdf
+*.obj
+FirstProgram/Debug/FirstProgram.Build.CppClean.log
+*.log
+FirstProgram/Debug/FirstProgram.tlog/cl.command.1.tlog
+*.tlog
+FirstProgram/Debug/vc140.idb
+*.vcxproj
+FirstProgram/FirstProgram.vcxproj.filters
