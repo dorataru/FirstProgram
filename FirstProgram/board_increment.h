@@ -20,6 +20,11 @@ namespace oth
 		{}
 
 	public:
+	
+		board get_board() const
+		{
+			return this->boa;
+		}
 
 		bool increment_plus()
 		{
