@@ -2,6 +2,7 @@
 #include <iostream>
 #include "base.h"
 #include "stone.h"
+#include "point.h"
 #include <vector>
 
 namespace oth
@@ -159,6 +160,11 @@ namespace oth
 			}
 		}
 
+		stone get_d(const point& p) const
+		{
+			return this->get_d(p.x, p.y);
+		}
+
 		template<unsigned char _X, unsigned char _Y, class _Stn>
 		void set(
 			typename std::enable_if<
@@ -249,6 +255,17 @@ namespace oth
 			}
 		}
 		/* */
+
+		template<class _Stn>
+		void set_d(const point& p)
+		{
+			return this->set_d<_Stn>(p.x, p.y);
+		}
+
+		void set_d(const point& p, const stone stn)
+		{
+			return this->set_d(p.x, p.y, stn);
+		}
 
 		template<class _Stn>
 		unsigned long long get_bitline(

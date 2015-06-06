@@ -13,10 +13,10 @@ namespace oth
 
 	namespace line
 	{
-		struct nothing {};
-		struct vertical {};
-		struct horizontal {};
-		struct left_cross {};
-		struct right_cross {};
+		struct nothing { static const unsigned char value = 0x0; };
+		struct vertical { static const unsigned char value = 0x1; };
+		struct horizontal { static const unsigned char value = 0x2; };
+		struct left_cross { static const unsigned char value = 0x4; };
+		struct right_cross { static const unsigned char value = 0x8; };
 	}
 }
