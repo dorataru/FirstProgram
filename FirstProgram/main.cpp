@@ -5,7 +5,7 @@ using namespace oth;
 
 void main()
 {
-	board_increment incr;
+	
 	
 
 }
