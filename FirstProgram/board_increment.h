@@ -25,14 +25,14 @@ namespace oth
 		}
 
 
-		template<class _Fir, class _Sec, class _Thi, class _Fou>
+		template<class _Fir = line::nothing, class _Sec = line::nothing, class _Thi = line::nothing, class _Fou = line::nothing>
 		static std::vector<point> get_point_list(const unsigned char x, const unsigned char y)
 		{
 			std::vector<point> result;
-			board_increment::get_point_list_impl<_Fir::value | _Sec::value | _Thi::value | _Fou::value | 0x1>(result, x, y);
-			board_increment::get_point_list_impl<_Fir::value | _Sec::value | _Thi::value | _Fou::value | 0x2>(result, x, y);
-			board_increment::get_point_list_impl<_Fir::value | _Sec::value | _Thi::value | _Fou::value | 0x4>(result, x, y);
-			board_increment::get_point_list_impl<_Fir::value | _Sec::value | _Thi::value | _Fou::value | 0x8>(result, x, y);
+			board_increment::get_point_list_impl<(_Fir::value | _Sec::value | _Thi::value | _Fou::value) & 0x1>(result, x, y);
+			board_increment::get_point_list_impl<(_Fir::value | _Sec::value | _Thi::value | _Fou::value) & 0x2>(result, x, y);
+			board_increment::get_point_list_impl<(_Fir::value | _Sec::value | _Thi::value | _Fou::value) & 0x4>(result, x, y);
+			board_increment::get_point_list_impl<(_Fir::value | _Sec::value | _Thi::value | _Fou::value) & 0x8>(result, x, y);
 			return std::move(result);
 		}
 
@@ -96,7 +96,7 @@ namespace oth
 			if (x + y <= 7) {
 				unsigned char ix = x + y;
 				unsigned char iy = 0;
-				for (; ix >= 0; --ix, ++iy) {
+				for (; ix != 255u; --ix, ++iy) {
 					if (iy != y) {
 						base.push_back(point(ix, iy));
 					}
